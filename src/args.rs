@@ -23,4 +23,7 @@ pub struct RgenArgs {
     /// Raw output
     #[clap(short, long)]
     pub raw: bool,
+    /// Save to file
+    #[clap(short, long)]
+    pub save: bool,
 }
