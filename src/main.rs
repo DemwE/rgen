@@ -25,6 +25,12 @@ fn main() {
             .map(|_| available_characters.chars().nth(rng.gen_range(0..available_characters.len())).unwrap())
             .collect();
 
-        println!("Generated password: {}", password);
+        if args.raw {
+            println!("{}", password);
+            continue;
+        }
+        else {
+            println!("Generated password: {}", password);
+        }
     }
 }
