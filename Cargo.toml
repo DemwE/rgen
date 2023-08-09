@@ -1,7 +1,10 @@
 [package]
 name = "rgen"
 version = "0.1.0"
+authors = ["Mateusz Czarnecki (DemwE)"]
+description = "A simple CLI tool for generating random passwords."
 edition = "2021"
+
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
