@@ -20,4 +20,7 @@ pub struct RgenArgs {
     /// Use special characters
     #[clap(short, long)]
     pub special: bool,
+    /// Raw output
+    #[clap(short, long)]
+    pub raw: bool,
 }
