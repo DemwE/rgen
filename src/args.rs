@@ -12,12 +12,12 @@ pub struct RgenArgs {
     /// Password length
     #[clap(default_value = "16")]
     #[clap(short, long)]
-    pub length: Option<usize>,
+    pub length: Option<i32>,
     /// Password count
     #[clap(default_value = "1")]
     #[clap(short, long)]
-    pub count: Option<usize>,
+    pub count: Option<i32>,
     /// Use special characters
     #[clap(short, long)]
-    pub special: Option<bool>,
+    pub special: bool,
 }
