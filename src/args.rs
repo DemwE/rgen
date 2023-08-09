@@ -24,6 +24,6 @@ pub struct RgenArgs {
     #[clap(short, long)]
     pub raw: bool,
     /// Save to file
-    #[clap(short, long)]
+    #[clap(short = 'S', long = "Save")]
     pub save: Option<String>,
 }
