@@ -10,4 +10,5 @@
 - Optionally include special characters in generated passwords.
 - Set the desired length of the passwords.
 - Generate a specified number of passwords.
+- Save generated passwords to a file.
 
