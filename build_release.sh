@@ -5,17 +5,20 @@ if [ ! -f build.conf ]; then
   echo "UpdateRustTargets=true" >>build.conf
   echo "BuildWindows=true" >>build.conf
   echo "BuildLinux=true" >>build.conf
+  echo "BuildMac=true" >>build.conf
   exit 0
 fi
 
 UpdateRustTargets=$(cat build.conf | grep UpdateRustTargets | cut -d "=" -f 2)
 BuildWindows=$(cat build.conf | grep BuildWindows | cut -d "=" -f 2)
 BuildLinux=$(cat build.conf | grep BuildLinux | cut -d "=" -f 2)
+BuildMac=$(cat build.conf | grep BuildMac | cut -d "=" -f 2)
 
 if [ "$UpdateRustTargets" == "true" ]; then
   echo -e "\e[94mUpdating rust targets\e[0m"
   rustup target add x86_64-pc-windows-gnu
   rustup target add x86_64-unknown-linux-gnu
+  rustup target add x86_64-apple-darwin
   if [ $? -ne 0 ]; then
     echo -e "\e[31mError: Failed to update rust targets\e[0m"
   else
@@ -53,4 +56,18 @@ elif [ "$BuildLinux" == "false" ]; then
   echo -e "\e[94mSkipping Linux build.\e[0m"
 else
   echo -e "\e[31mError: Invalid value for BuildLinux: $BuildLinux\e[0m"
+fi
+
+if [ "$BuildMac" == "true" ]; then
+  echo -e "\e[94mBuilding for Mac\e[0m"
+  cargo build --target x86_64-apple-darwin
+  if [ $? -ne 0 ]; then
+    echo -e "\e[31mError: Failed to build for Mac\e[0m"
+  else
+    echo -e "\e[92mDone!\e[0m"
+  fi
+elif [ "$BuildMac" == "false" ]; then
+  echo -e "\e[94mSkipping Mac build.\e[0m"
+else
+  echo -e "\e[31mError: Invalid value for BuildMac: $BuildMac\e[0m"
 fi
