@@ -11,4 +11,5 @@
 - Set the desired length of the passwords.
 - Generate a specified number of passwords.
 - Save generated passwords to a file.
+- Passphrases style password
 

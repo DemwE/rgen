@@ -26,4 +26,11 @@ pub struct RgenArgs {
     /// Save to file
     #[clap(short = 'S', long = "Save")]
     pub save: Option<String>,
+    /// Passphrase password
+    #[clap(short = 'P', long)]
+    pub passphrase: bool,
+    /// Passphrase count
+    #[clap(default_value = "3")]
+    #[clap(short, long)]
+    pub passphrase_count: Option<i32>,
 }
