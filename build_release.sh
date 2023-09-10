@@ -60,7 +60,7 @@ fi
 
 if [ "$BuildMac" == "true" ]; then
   echo -e "\e[94mBuilding for Mac\e[0m"
-  cargo build --target x86_64-apple-darwin
+  cargo build --release --target x86_64-apple-darwin
   if [ $? -ne 0 ]; then
     echo -e "\e[31mError: Failed to build for Mac\e[0m"
   else
