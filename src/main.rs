@@ -23,7 +23,6 @@ fn main() {
     for _ in 0..count {
         let password = if args.passphrase {
             passphrase_password::generator(&args)
-            
         } else {
             random_password::generator(&args)            
         };

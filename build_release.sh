@@ -15,14 +15,29 @@ BuildLinux=$(cat build.conf | grep BuildLinux | cut -d "=" -f 2)
 BuildMac=$(cat build.conf | grep BuildMac | cut -d "=" -f 2)
 
 if [ "$UpdateRustTargets" == "true" ]; then
-  echo -e "\e[94mUpdating rust targets\e[0m"
-  rustup target add x86_64-pc-windows-gnu
-  rustup target add x86_64-unknown-linux-gnu
-  rustup target add x86_64-apple-darwin
+  echo -e "\e[94mUpdating/Downloading rust targets\e[0m"
+  if [ "BuildWindows" == "true" ]; then
+    rustup target remove x86_64-pc-windows-gnu
+    if [ $? -ne 0 ]; then
+      echo -e "\e[31mError: Failed to update or download rust targets\e[0m"
+    fi
+  fi
+  if [ "BuildLinux" == "true" ]; then
+    rustup target remove x86_64-unknown-linux-gnu
+    if [ $? -ne 0 ]; then
+      echo -e "\e[31mError: Failed to update or download rust targets\e[0m"
+    fi
+  fi
+  if [ "BuildMac" == "true" ]; then
+    rustup target remove x86_64-apple-darwin
+    if [ $? -ne 0 ]; then
+      echo -e "\e[31mError: Failed to update or download rust targets\e[0m"
+    fi
+  fi
   if [ $? -ne 0 ]; then
-    echo -e "\e[31mError: Failed to update rust targets\e[0m"
+    echo -e "\e[31mError: Failed to update or download rust targets\e[0m"
   else
-    echo -e "\e[92mRust targets updated\e[0m"
+    echo -e "\e[92mRust targets updated/downloaded\e[0m"
   fi
 elif [ "$UpdateRustTargets" == "false" ]; then
   echo -e "\e[94mSkipping rust target update.\e[0m"

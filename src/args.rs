@@ -33,4 +33,7 @@ pub struct RgenArgs {
     #[clap(default_value = "3")]
     #[clap(short, long)]
     pub passphrase_count: Option<i32>,
+    /// Custom passphrase list file
+    #[clap(short = 'C', long)]
+    pub custom_passphrase_list: Option<String>,
 }
