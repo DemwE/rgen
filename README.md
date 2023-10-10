@@ -1,4 +1,4 @@
-# rgen - Password Generator
+# rgend - Password Generator
 
 [![License](https://img.shields.io/badge/license-GPL--3.0-blue.svg)](https://github.com/DemwE/rgen/blob/master/LICENSE)
 [![GitHub tag](https://img.shields.io/github/tag/DemwE/rgen?include_prereleases=&sort=semver&color=blue)](https://github.com/DemwE/rgen/releases/)
